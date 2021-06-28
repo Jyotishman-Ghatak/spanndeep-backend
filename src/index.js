@@ -4,6 +4,7 @@ const { connectMongoDB } = require("./db/connect");
 const cors = require("cors");
 const AnalyticsRoute = require("./routes/analytics");
 const AuthRoute = require("./routes/auth");
+const UserRoute = require("./routes/user")
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../swagger.json");
 
@@ -16,6 +17,7 @@ const main = async () => {
 
   app.use("/api/analytics", AnalyticsRoute);
   app.use("/api/auth", AuthRoute);
+  app.use("/api/users", UserRoute)
   app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   app.use(express.json({ extended: false }));
   // app.use(bodyParser.json());
