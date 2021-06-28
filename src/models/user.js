@@ -25,9 +25,21 @@ const UserSchema = new Schema(
       type: String,
       enum: ["MALE", "FEMALE", "OTHERS"],
     },
+    country: {
+      type: String
+    },
+    state: {
+      type: String
+    },
+    organization: {
+      type: String
+    },
+    phone: {
+      type: String
+    },
     userType: {
       type: String,
-      enum: ["ADMIN", "USER", "SUPERADMIN"],
+      enum: ["ADMIN", "USER", "SUPERADMIN", "POWERUSER"],
       default: "USER",
     },
   },

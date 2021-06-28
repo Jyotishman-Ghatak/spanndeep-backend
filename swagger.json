@@ -298,7 +298,7 @@
         }
       }
     },
-    "UserRegisterInput": {
+    "UserRegisterInput": {                              
       "required": [
         "email",
         "password",
@@ -332,6 +332,28 @@
           "type": "string",
           "enum": ["MALE", "FEMALE", "OTHERS"],
           "description": "Stores Gender of the user"
+        },
+        "country": {
+          "type": "String",
+          "description": "Stores Country of the user"
+        },
+        "state": {
+          "type": "String",
+          "description": "Stores State of the user"
+        },
+        "organization": {
+          "type": "String",
+          "description": "Stores Organization of the user"
+        },
+        "phone":{
+          "type":"String",
+          "description": "Stores Phone Number of the user"
+        },
+        "userType": {
+          "type": "String",
+          "enum": ["ADMIN", "USER", "SUPERADMIN", "POWERUSER"],
+          "default": "USER",
+          "description": "Stores role of the user"
         }
       }
     },

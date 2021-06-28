@@ -10,7 +10,6 @@ exports.Login = async function (req, res) {
   try {
     const user = await authenticateUser({ email, password });
     const token = await signJWT(user.email);
-    console.log(token);
     return res.json({ token });
   } catch (error) {
     return res.status(401).json({ errors: error });
@@ -22,7 +21,7 @@ exports.Register = async function (req, res) {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { email, password, firstName, lastName, age, gender } = req.body;
+  const { email, password, firstName, lastName, age, gender, country, state, organization } = req.body;
   try {
     const createdUser = await createUser({
       email,
@@ -31,6 +30,9 @@ exports.Register = async function (req, res) {
       lastName,
       age,
       gender,
+      country,
+      state,
+      organization
     });
     // console.log(createdUser);
     delete createdUser.password;
